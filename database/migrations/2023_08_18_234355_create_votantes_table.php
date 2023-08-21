@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('documento');
             $table->string('nombre');
-            $table->string('mesa');
-            $table->string('id_candidato_seleccionado');
+            $table->integer('mesa');
+            $table->unsignedBigInteger('id_candidato_seleccionado');
             $table->timestamps();
+
+            $table->foreign('id_candidato_seleccionado')->references('id')->on('candidatos');
         });
     }
 
